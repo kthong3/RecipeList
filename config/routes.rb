@@ -3,8 +3,11 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   resources :users, except: :new
-  resources :recipes
-  resources :pinned_recipes
+  resources :recipes do
+    resources :pinned_recipes
+  end
+
+  get 'recipes/:id/unpin' => 'pinned_recipes#destroy', as: 'unpin'
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
