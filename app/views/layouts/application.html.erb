@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>RecipeList</title>
+    <title>Recipe List</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <nav>
+    <% if logged_in? %>
+      <%= link_to 'logout', logout_path %>
+    <% else %>
+      <%= link_to 'signup', signup_path %> | <%= link_to 'login', login_path %>
+    <% end %>
+  </nav>
   <body>
     <%= yield %>
   </body>
