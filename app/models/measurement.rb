@@ -1,3 +1,3 @@
 class Measurement < ApplicationRecord
-  belongs_to :recipe_ingredient
+  has_many :recipe_ingredient
 end
