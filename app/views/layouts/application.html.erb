@@ -9,7 +9,7 @@
   </head>
   <nav>
     <% if logged_in? %>
-      <%= link_to 'logout', logout_path %>
+      <%= link_to 'logout', logout_path %> | <%= link_to 'home', root_path %> | <%= link_to 'profile', user_path(current_user) %>
     <% else %>
       <%= link_to 'signup', signup_path %> | <%= link_to 'login', login_path %>
     <% end %>

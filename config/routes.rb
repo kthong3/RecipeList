@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root "recipes#index"
 
   resources :users, except: :new
-
+  resources :recipes
 
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

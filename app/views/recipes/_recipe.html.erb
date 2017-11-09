@@ -1,0 +1,5 @@
+<% if logged_in? %>
+  <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+<% else %>
+  <li><%= recipe.title %></li>
+<% end %>
