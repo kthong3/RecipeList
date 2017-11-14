@@ -7,8 +7,7 @@ class PinnedRecipesController < ApplicationController
 
   def destroy
     p params
-    PinnedRecipe.where(user: current_user, recipe: Recipe.find_by(id: params[:id])).destroy
-    # p pinned_recipe
-    # pinned_recipe.destroy
+    PinnedRecipe.find_by(user: current_user, recipe: Recipe.find_by(id: params[:id])).destroy
+    redirect_to user_path(current_user)
   end
 end
