@@ -4,6 +4,6 @@ class User < ApplicationRecord
   validates :password, presence: true
   has_secure_password
 
-  has_many  :pinned_recipes
+  has_many :pinned_recipes
   has_many :recipes, through: :pinned_recipes
 end
