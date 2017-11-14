@@ -4,9 +4,14 @@ class RecipesController < ApplicationController
   end
 
   def new
+    @recipe = Recipe.new
   end
 
   def create
+    recipe = params[:recipe]
+    @recipe = Recipe.create(title: recipe[:title], cook_time: recipe[:cook_time], instructions: recipe[:instructions])
+    p @recipe
+    redirect_to recipe_path(@recipe)
   end
 
   def show

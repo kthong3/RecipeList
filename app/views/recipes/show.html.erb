@@ -8,7 +8,9 @@
     <% end %>
   </ul>
 <h2>Instructions:</h2>
-<%= @recipe.instructions %>
+<div>
+  <%= simple_format(@recipe.instructions) %>
+</div>
 
 <% if current_user.recipes.include? (@recipe) %>
   <%= button_to "Unpin", unpin_path(@recipe), method: :get  %>
