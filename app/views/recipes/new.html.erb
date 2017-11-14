@@ -1,10 +1,13 @@
 <h1>Add a New Recipe </h1>
 
 <div>
-  <%= form_for @recipe do |f|  %>
+  <%= form_for @recipe, html: { multipart: true } do |f|  %>
   <div>
       <%= f.label :title %>
       <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.file_field :image %>
   </div>
   <div>
       <%= f.label :cook_time %>
