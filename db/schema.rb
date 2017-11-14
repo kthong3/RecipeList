@@ -15,18 +15,6 @@ ActiveRecord::Schema.define(version: 20171109155406) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ingredients", force: :cascade do |t|
-    t.string "item"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "measurements", force: :cascade do |t|
-    t.string "measure"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "pinned_recipes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "recipe_id"
@@ -36,21 +24,10 @@ ActiveRecord::Schema.define(version: 20171109155406) do
     t.index ["user_id"], name: "index_pinned_recipes_on_user_id"
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.bigint "recipe_id"
-    t.bigint "ingredient_id"
-    t.float "quantity"
-    t.bigint "measurement_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["measurement_id"], name: "index_recipe_ingredients_on_measurement_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.string "cook_time"
+    t.string "ingredients"
     t.string "instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

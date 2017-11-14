@@ -9,7 +9,8 @@ class RecipesController < ApplicationController
 
   def create
     recipe = params[:recipe]
-    @recipe = Recipe.create(title: recipe[:title], cook_time: recipe[:cook_time], instructions: recipe[:instructions])
+    @recipe = Recipe.create(title: recipe[:title], cook_time: recipe[:cook_time], ingredients: recipe[:ingredients], instructions: recipe[:instructions])
+    p @recipe
     PinnedRecipe.create(user: current_user, recipe: @recipe)
     redirect_to recipe_path(@recipe)
   end
