@@ -1,5 +1,11 @@
 <% if logged_in? %>
-  <li><%= link_to recipe.title, recipe_path(recipe) %></li>
+  <div>
+    <%= image_tag recipe.image.url(:thumb) %>
+    <p><%= link_to recipe.title, recipe_path(recipe) %></p>
+  </div>
 <% else %>
-  <li><%= recipe.title %></li>
+  <div>
+    <%= image_tag recipe.image.url(:thumb) %>
+    <p><%= recipe.title %></p>
+  </div>
 <% end %>
