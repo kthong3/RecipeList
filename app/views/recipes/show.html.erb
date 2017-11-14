@@ -1,5 +1,5 @@
 <h1><%= @recipe.title %></h1>
-
+<p>Submitted by <%= @recipe.author.username %></p>
 <p>Cook time: <%= @recipe.cook_time %></p>
 <h2>Ingredients:</h2>
 <div>
@@ -14,4 +14,8 @@
   <%= button_to "Unpin", unpin_path(@recipe), method: :get  %>
 <% else %>
   <%= button_to 'Save this Recipe', recipe_pinned_recipes_path(@recipe)  %>
+<% end %>
+
+<% if @recipe.author == current_user && @recipe.editable %>
+ <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
 <% end %>

@@ -1,4 +1,4 @@
-<%= @user.first_name %>
+<%= @user.username %>
 <%= button_to 'Add New Recipe', new_recipe_path, method: :get %>
 <ul>
   <% @user.recipes.each do |pinned_recipe| %>

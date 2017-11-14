@@ -1,0 +1,24 @@
+<div>
+  <%= form_for @recipe do |f|  %>
+  <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+  </div>
+  <div>
+      <%= f.label :cook_time %>
+      <%= f.text_field :cook_time %>
+  </div>
+  <div>
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients, size: "30x20" %>
+  </div>
+  <div>
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions, size: "30x20" %>
+  </div>
+  <div>
+      <%= f.submit 'Save' %>
+  </div>
+  <% end %>
+</div>
+

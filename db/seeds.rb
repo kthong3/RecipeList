@@ -7,8 +7,11 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Recipe.destroy_all
+User.destroy_all
+
+User.create(username: "mom", email: "mom@email.com", password: "password")
 
 10.times do
-  Recipe.create(title: Faker::Food.dish, cook_time: "1 hour", ingredients: Faker::Food.measurement + " " + Faker::Food.ingredient, instructions: "make it")
+  Recipe.create(author: User.first, title: Faker::Food.dish, cook_time: "1 hour", ingredients: Faker::Food.measurement + " " + Faker::Food.ingredient, instructions: "make it")
 end
 
