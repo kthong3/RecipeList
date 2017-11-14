@@ -1,0 +1,28 @@
+<h1>Add a New Recipe </h1>
+
+<div>
+  <%= form_for @recipe, html: { multipart: true } do |f|  %>
+  <div>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.file_field :image %>
+  </div>
+  <div>
+      <%= f.label :cook_time %>
+      <%= f.text_field :cook_time %>
+  </div>
+  <div>
+    <%= f.label :ingredients %>
+    <%= f.text_area :ingredients, placeholder: "1/3 cup flour", size: "30x20" %>
+  </div>
+  <div>
+    <%= f.label :instructions %>
+    <%= f.text_area :instructions, placeholder: "1. Preheat oven to 350 degrees", size: "30x20" %>
+  </div>
+  <div>
+      <%= f.submit 'Save' %>
+  </div>
+  <% end %>
+</div>

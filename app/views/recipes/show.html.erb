@@ -1,13 +1,22 @@
 <h1><%= @recipe.title %></h1>
-
+<%= image_tag @recipe.image.url(:medium) %>
+<p>Submitted by <%= @recipe.author.username %></p>
 <p>Cook time: <%= @recipe.cook_time %></p>
 <h2>Ingredients:</h2>
-  <ul>
-    <% @recipe.recipe_ingredients.each do |recipe_ingredient| %>
-    <li><%= recipe_ingredient.quantity %> <%= recipe_ingredient.measurement.measure %> <%= recipe_ingredient.ingredient.item %></li>
-    <% end %>
-  </ul>
+<div>
+  <%= simple_format(@recipe.ingredients) %>
+</div>
 <h2>Instructions:</h2>
-<%= @recipe.instructions %>
+<div>
+  <%= simple_format(@recipe.instructions) %>
+</div>
 
-<%= button_to 'Save this Recipe',  %>
+<% if current_user.recipes.include? (@recipe) %>
+  <%= button_to "Unpin", unpin_path(@recipe), method: :get  %>
+<% else %>
+  <%= button_to 'Save this Recipe', recipe_pinned_recipes_path(@recipe)  %>
+<% end %>
+
+<% if @recipe.author == current_user && @recipe.editable %>
+ <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
+<% end %>

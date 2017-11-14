@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109155406) do
+ActiveRecord::Schema.define(version: 20171114220702) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "ingredients", force: :cascade do |t|
-    t.string "item"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "measurements", force: :cascade do |t|
-    t.string "measure"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "pinned_recipes", force: :cascade do |t|
     t.bigint "user_id"
@@ -36,30 +24,25 @@ ActiveRecord::Schema.define(version: 20171109155406) do
     t.index ["user_id"], name: "index_pinned_recipes_on_user_id"
   end
 
-  create_table "recipe_ingredients", force: :cascade do |t|
-    t.bigint "recipe_id"
-    t.bigint "ingredient_id"
-    t.float "quantity"
-    t.bigint "measurement_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["ingredient_id"], name: "index_recipe_ingredients_on_ingredient_id"
-    t.index ["measurement_id"], name: "index_recipe_ingredients_on_measurement_id"
-    t.index ["recipe_id"], name: "index_recipe_ingredients_on_recipe_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
+    t.bigint "user_id"
     t.string "title"
     t.string "cook_time"
+    t.string "ingredients"
     t.string "instructions"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
-    t.string "first_name"
+    t.string "username"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
