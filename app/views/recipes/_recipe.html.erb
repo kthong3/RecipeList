@@ -1,11 +1,11 @@
 <% if logged_in? %>
-  <div>
-    <%= image_tag recipe.image.url(:thumb) %>
-    <p><%= link_to recipe.title, recipe_path(recipe) %></p>
+  <div class="recipe-box">
+    <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
+    <p class="index-title"><%= link_to recipe.title, recipe_path(recipe) %></p>
   </div>
 <% else %>
-  <div>
-    <%= image_tag recipe.image.url(:thumb) %>
-    <p><%= recipe.title %></p>
+  <div class="recipe-box">
+    <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
+    <p class="index-title"><%= recipe.title %></p>
   </div>
 <% end %>
