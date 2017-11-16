@@ -1,11 +1,17 @@
 <% if logged_in? %>
   <div class="recipe-box">
     <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
-    <p class="index-title"><%= link_to recipe.title, recipe_path(recipe) %></p>
+    <div class="index-title">
+      <p><%= link_to recipe.title, recipe_path(recipe) %></p>
+      <p>Cook time: <%= recipe.cook_time %></p>
+    </div>
   </div>
 <% else %>
   <div class="recipe-box">
     <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
-    <p class="index-title"><%= recipe.title %></p>
+    <div class="index-title">
+      <p><%= recipe.title %></p>
+      <p>Cook time: <%= recipe.cook_time %></p>
+    </div>
   </div>
 <% end %>
