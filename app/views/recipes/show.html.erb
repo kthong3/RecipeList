@@ -1,22 +1,30 @@
-<h1><%= @recipe.title %></h1>
-<%= image_tag @recipe.image.url(:medium) %>
-<p>Submitted by <%= @recipe.author.username %></p>
-<p>Cook time: <%= @recipe.cook_time %></p>
-<h2>Ingredients:</h2>
-<div>
-  <%= simple_format(@recipe.ingredients) %>
-</div>
-<h2>Instructions:</h2>
-<div>
-  <%= simple_format(@recipe.instructions) %>
-</div>
+<div class="recipe-container">
+  <div class="header">
+    <h1><%= @recipe.title %></h1>
+    <%= image_tag @recipe.image.url(:medium) %>
+    <p>Submitted by <%= @recipe.author.username %></p>
+    <p>Cook time: <%= @recipe.cook_time %></p>
+  </div>
 
-<% if current_user.recipes.include? (@recipe) %>
-  <%= button_to "Unpin", unpin_path(@recipe), method: :get  %>
-<% else %>
-  <%= button_to 'Save this Recipe', recipe_pinned_recipes_path(@recipe)  %>
-<% end %>
+  <div class="ingredients">
+    <h2>Ingredients:</h2>
+    <%= simple_format(@recipe.ingredients) %>
+  </div>
 
-<% if @recipe.author == current_user && @recipe.editable %>
- <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
-<% end %>
+  <div class="instructions">
+    <h2>Instructions:</h2>
+    <%= simple_format(@recipe.instructions) %>
+  </div>
+
+  <div class="pin-buttons">
+    <% if current_user.recipes.include? (@recipe) %>
+      <%= button_to "Unpin", unpin_path(@recipe), method: :get  %>
+    <% else %>
+      <%= button_to 'Save this Recipe', recipe_pinned_recipes_path(@recipe)  %>
+    <% end %>
+
+    <% if @recipe.author == current_user && @recipe.editable %>
+     <%= button_to "Edit", edit_recipe_path(@recipe), method: :get %>
+    <% end %>
+  </div>
+</div>

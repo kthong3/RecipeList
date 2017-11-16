@@ -3,18 +3,37 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: auto 1fr 1fr 1fr 1fr;
-  border: 1px solid blue;
   }
 
-  #header {
+  .header {
     grid-column: 1/6;
     text-align: center;
-    border: 5px solid black;
   }
 
   .recipe-box {
     margin: 10px;
     border: 5px solid green;
+    text-align: center;
+  }
+
+  .recipe-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto 1fr 1fr;
+  }
+
+  .ingredients {
+    margin: 10px;
+    grid-column: 1/2;
+  }
+
+  .instructions {
+    margin: 10px;
+    grid-column: 2/3;
+  }
+
+  .pin-buttons {
+    grid-column: 1/3;
     text-align: center;
   }
 }
@@ -24,12 +43,10 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr 1fr;
-  border: 1px solid orange;
   }
-  #header {
+  .header {
     grid-column: 1/3;
     text-align: center;
-    border: 5px solid red;
   }
 
   .recipe-box {
@@ -50,9 +67,6 @@
     grid-column: 2/3;
   }
 }
-
-
-
 
 nav {
 
