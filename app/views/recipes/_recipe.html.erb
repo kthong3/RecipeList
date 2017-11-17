@@ -2,16 +2,16 @@
   <div class="recipe-box">
     <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
     <div class="index-title">
-      <p><%= link_to recipe.title, recipe_path(recipe) %></p>
-      <p>Cook time: <%= recipe.cook_time %></p>
+      <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+      <p class="cook-time">Cook time: <%= recipe.cook_time %></p>
     </div>
   </div>
 <% else %>
   <div class="recipe-box">
     <span class="index-image"><%= image_tag recipe.image.url(:thumb) %></span>
     <div class="index-title">
-      <p><%= recipe.title %></p>
-      <p>Cook time: <%= recipe.cook_time %></p>
+      <h2><%= recipe.title %></h2>
+      <p class="cook-time">Cook time: <%= recipe.cook_time %></p>
     </div>
   </div>
 <% end %>

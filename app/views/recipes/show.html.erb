@@ -3,7 +3,7 @@
     <h1><%= @recipe.title %></h1>
     <%= image_tag @recipe.image.url(:medium) %>
     <p>Submitted by <%= @recipe.author.username %></p>
-    <p>Cook time: <%= @recipe.cook_time %></p>
+    <p class="cook-time">Cook time: <%= @recipe.cook_time %></p>
   </div>
 
   <div class="ingredients">
