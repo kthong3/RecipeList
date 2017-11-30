@@ -23,4 +23,5 @@ feature 'adding a new recipe'  do
 
     expect(page).to have_content "chicken noodle soup"
   end
+
 end

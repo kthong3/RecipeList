@@ -15,3 +15,6 @@ User.create(username: "mom", email: "mom@email.com", password: "password")
   Recipe.create(author: User.first, title: Faker::Food.dish, cook_time: "1 hour", ingredients: Faker::Food.measurement + " " + Faker::Food.ingredient, instructions: "make it")
 end
 
+User.create(username: "grandma", email: "grandma@email.com", password: "password")
+Recipe.create(author: User.first, title: "Spinning Fried Chicken", cook_time: "2 days", ingredients: "1 piece of pork", instructions: "mix it all together")
+
