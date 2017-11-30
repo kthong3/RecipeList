@@ -2,11 +2,10 @@ class PinnedRecipesController < ApplicationController
 
   def create
     PinnedRecipe.create(user: current_user, recipe: Recipe.find(params[:recipe_id]))
-    p "success"
+    redirect_to user_path(current_user)
   end
 
   def destroy
-    p params
     PinnedRecipe.find_by(user: current_user, recipe: Recipe.find_by(id: params[:id])).destroy
     redirect_to user_path(current_user)
   end
