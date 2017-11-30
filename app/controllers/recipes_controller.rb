@@ -8,7 +8,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-    p recipe_params
     @recipe = Recipe.new(recipe_params)
     @recipe.author = current_user
     @recipe.save
