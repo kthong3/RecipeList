@@ -4,8 +4,9 @@ Ruby on Rails application that currently allows users to create, save, and share
 The goal of this application will allow users to input their recipes via links or manually and save them all in one place using test driven development.
 
 ## TECHNOLOGIES USED:
-- Ruby
-- Rails5
+- Ruby 2.4.1
+- Ruby on Rails 5.1.4
+- Postgresql
 - CSS
 - HTML
 - Amazon Web Services
@@ -22,7 +23,6 @@ The goal of this application will allow users to input their recipes via links o
 - paperclip
 - pg (~> 0.18)
 - puma (~> 3.7)
-- rails (~> 5.1.4)
 - rspec-rails (~> 3.6)
 - sass-rails (~> 5.0)
 - spring
